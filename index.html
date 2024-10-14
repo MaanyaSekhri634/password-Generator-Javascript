@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+    <style>
+        /* Default styles for the input range */
+        input[type="range"] {
+            -webkit-appearance: none; /* Remove default styling */
+            width: 100%; /* Full width */
+            height: 10px; /* Track height */
+            background: #868b93; /* Tailwind's gray-300 */
+            border-radius: 5px; /* Rounded track */
+            outline: none; /* Remove outline */
+        }
+
+        /* WebKit browsers (Chrome, Safari) */
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none; /* Remove default styling */
+            width: 20px; /* Thumb width */
+            height: 20px; /* Thumb height */
+            background: #FEFFA7; /* Tailwind's blue-500 */
+            border-radius: 50%; /* Circular thumb */
+            cursor: pointer; /* Change cursor on hover */
+            margin-top: -2px; /* Center the thumb with the track */
+        }
+
+        /* Firefox */
+        input[type="range"]::-moz-range-thumb {
+            width: 24px; /* Thumb width */
+            height: 24px; /* Thumb height */
+            background: #FEFFA7; /* Tailwind's blue-500 */
+            border-radius: 50%; /* Circular thumb */
+            cursor: pointer; /* Change cursor on hover */
+        }
+
+        /* Internet Explorer */
+        input[type="range"]::-ms-thumb {
+            width: 24px; /* Thumb width */
+            height: 24px; /* Thumb height */
+            background: #FEFFA7; /* Tailwind's blue-500 */
+            border-radius: 50%; /* Circular thumb */
+            cursor: pointer; /* Change cursor on hover */
+        }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+    <div class="bg-[#3B3030] h-[100vh] flex justify-center items-center w-[100vw]">
+        <div class=" bg-[#664343] flex flex-col gap-14 w-2/5 p-8 rounded-md items-center">
+
+        <h1 class="mx-auto text-xl font-bold text-[#FFF0D1] uppercase tracking-wide leading-5">Password Generator</h1>
+        <!--display bar-->
+        <div class="flex flex-row gap-10 justify-between items-center  bg-[#795757] rounded-md mx-auto">
+            <input readonly placeholder="Password" class="placeholder-[#FFF0D1] p-5 display bg-[#795757] rounded-md uppercase opacity-70 border-none focus:outline-none cursor-pointer">
+            <button class="flex items-center justify-center mx-4">
+                <span class="text-[#FFF0D1] text-lg copyText p-2"></span>
+                <img src="./copy.png" class="w-5 h-5 copyButton mx-0">
+            </button>
+        </div>
+        <!--control section-->
+        <div class="flex flex-col w-80 mx-auto">
+            <div class="flex flex-row gap-10 my-2">
+                <p class="text-[#FFF0D1] text-lg ">Password Length</p>
+                <p class="text-[#FFF0D1] text-lg number">10</p>
+            </div>
+            <input type="range" min="1" max="20" value="10" class="h-5 slider my-6" step="1">
+            <!--checkboxes-->
+            <div class="flex flex-row items-center gap-3 check">
+                <input type="checkbox" id="upper" class=" cursor-pointer rounded-[0.35rem] appearance-none h-[18px] w-[18px] border-2 border-[#AB886D] relative checked:bg-[#AB886D] ">
+                <label for="upper" class="text-[#FFF0D1] text-lg">Include uppercase letters</label>
+            </div>
+            <div class="flex flex-row items-center gap-3 check">
+            <input type="checkbox" id="lower"  class="cursor-pointer rounded-[0.35rem] appearance-none h-[18px] w-[18px] border-2 border-[#AB886D] relative checked:bg-[#AB886D]">
+            <label for="lower" class="text-[#FFF0D1] text-lg">Include lowercase letters</label>
+            </div>  
+            <div class="flex flex-row items-center gap-3 check">
+            <input type="checkbox" id="numbers" class="cursor-pointer rounded-[0.35rem] appearance-none h-[18px] w-[18px] border-2 border-[#AB886D] relative checked:bg-[#AB886D]">
+            <label for="numbers" class="text-[#FFF0D1] text-lg">Include numbers</label>
+            </div>
+            <div class=" flex flex-row items-center gap-3 check">
+            <input type="checkbox" id="symbols" class="cursor-pointer rounded-[0.35rem] appearance-none h-[18px] w-[18px] border-2 border-[#AB886D] relative checked:bg-[#AB886D]">
+            <label for="symbols" class="text-[#FFF0D1] text-lg">Include symbols</label>
+            </div>
+            <!--strength section-->
+            <div class="flex gap-10 items-center justify-between my-7">
+                <p class="text-[#FFF0D1] text-lg strengthText font-bold">Strength</p>
+                <div class="indicatorStrength h-6 w-6 rounded-full shadow-xl bg-[#FFF0D1]"></div> <!--to create the circle-->
+            </div class="p-10 m-8">
+            <button class="generator bg-[#795757] text-[#FFF0D1] font-semibold  py-3 text-lg mx-auto rounded-md p-4">Generate password</button>
+        </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

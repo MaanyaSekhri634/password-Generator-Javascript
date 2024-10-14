@@ -1,0 +1,31 @@
+
+.copyText{
+    visibility: hidden;
+}
+.active {
+    visibility: visible;
+}
+.check input:checked::before{
+    content: '✓';
+    position:absolute;
+    font-weight: 600;
+    left:50%;
+    top:-3.5px;
+    transform: translateX(-50%) translateY(5%);
+}
+.slider::-webkit-slider-thumb{
+    appearance: none;
+    z-index: 1;
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    transition: all 100ms ease-in;
+    cursor: pointer;
+}
+.slider:focus{
+    outline: 3px solid #FFF0D1;
+}
+.slider::-webkit-slider-thumb:hover{
+    border:5px solid #795713;
+    box-shadow: 0 0 20px rgba(121, 87, 19, 0.7);
+}
